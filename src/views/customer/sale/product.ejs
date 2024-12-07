@@ -1,0 +1,33 @@
+<form action="/sale" method="get">
+    <div class="container search">
+        <input type="text" id="input-search" placeholder="Tìm kiếm sản phẩm" required name="search" value="<%= search %>">
+        <button id="send">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</form>
+
+<div class="untree_co-section product-section before-footer-section" id="box-list-product">
+    <div class="container">
+        <div class="row" id="list-product">
+            <!-- xuất sp-->
+            <% for(var i = 0; i < products.length; i++) {%>
+                <div class="col-12 col-md-4 col-lg-3 mb-5">
+                    <a class="product-item" href="/sale/product/info/<%=products[i].idSP%>">
+                        <div class="p_img"><img src="/uploads/<%= products[i].anh %>" class="img-fluid product-thumbnail " ></div>
+                        
+                        <h3 class="product-title height_name"><%= products[i].ten %></h3>
+                        <strong class="product-price">$<%= products[i].gia %> </strong>
+    
+                        <span class="icon-cross" >
+                            <i class="fal fa-plus" style="color: white;font-size: 25px;"></i>
+                        </span>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+        <div id="end-product">
+            Đã hết sản phẩm
+        </div>
+    </div>
+</div>
